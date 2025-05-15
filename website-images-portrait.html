@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eduport Mobile Menu Clone</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .topbar img.logo {
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .topbar .profile {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .menu-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      width: 100%;
+      max-width: 300px;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      padding: 10px 15px;
+    }
+
+    .category-btn {
+      background-color: #e8f0ff;
+      color: #1565c0;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .category-btn::before {
+      content: '\1F5C2';
+      margin-right: 8px;
+    }
+
+    .menu-list > div {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .menu-list > div:hover {
+      background-color: #f9f9f9;
+    }
+
+    .search-box {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding-right: 30px;
+    }
+
+    .search-box::after {
+      content: '\1F50D';
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px 10px;
+    }
+
+    .stat-box {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-radius: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .yellow { background-color: #fff8e1; }
+    .gray { background-color: #e3eaf1; }
+    .purple { background-color: #ede7f6; }
+    .blue { background-color: #e0f7fa; }
+
+    .stat-box span {
+      margin-left: 10px;
+      display: block;
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .footer {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+
+    .footer h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 15px;
+      max-width: 250px;
+    }
+
+    .social-icons span {
+      margin-right: 10px;
+      background: #f7f7f7;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 6px;
+      color: #333;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div style="flex: 1 1 300px;">
+    <div class="topbar">
+      <div style="display: flex; align-items: center;">
+        <img class="logo" src="https://img.icons8.com/ios-filled/50/000000/graduation-cap.png" alt="Logo">
+        <strong>Eduport</strong>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="menu-icon">☰</div>
+        <img class="profile" src="https://randomuser.me/api/portraits/women/79.jpg" alt="Profile">
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <button class="category-btn">Category</button>
+
+      <div class="menu-list">
+        <div>Demos ▾</div>
+        <div>Pages ▾</div>
+        <div>Accounts ▾</div>
+        <div>Megamenu ▾</div>
+        <div>⋯</div>
+      </div>
+
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+      </div>
+    </div>
+  </div>
+
+  <div class="stats" style="flex: 1 1 200px;">
+    <div class="stat-box yellow">
+      💻 <span><strong>10K</strong>Online Courses</span>
+    </div>
+    <div class="stat-box gray">
+      👤 <span><strong>200+</strong>Expert Tutors</span>
+    </div>
+    <div class="stat-box purple">
+      🎓 <span><strong>60K+</strong>Online Students</span>
+    </div>
+    <div class="stat-box blue">
+      🏅 <span><strong>6K+</strong>Certified Courses</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img class="logo" src="https://img.icons8.com/ios-filled/50/000000/graduation-cap.png" alt="Logo">
+      <strong style="margin-left: 8px; font-size: 18px;">Eduport</strong>
+    </div>
+    <p>Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
+    <div class="social-icons">
+      <span>📘</span><span>🐦</span><span>📸</span><span>🔗</span>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li>About us</li>
+          <li>Contact us</li>
+          <li>News and Blogs</li>
+          <li>Library</li>
+          <li>Career</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Community</h4>
+        <ul>
+          <li>Documentation</li>
+          <li>Faq</li>
+          <li>Forum</li>
+          <li>Sitemap</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Teaching</h4>
+        <ul>
+          <li>Become a teacher</li>
+          <li>How to guide</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+        </html>
