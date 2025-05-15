@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eduport</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2f2f2f;
+    background-color: #fff;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 20px;
+  }
+  header .logo-text {
+    font-weight: 600;
+    font-size: 22px;
+    color: #e25730; /* orange-ish */
+  }
+  header .logo-text span {
+    font-weight: 900;
+    color: #2f2f2f;
+  }
+  header .category-btn {
+    border: 1.5px solid #a5b5db;
+    border-radius: 6px;
+    color: #2f2f2f;
+    font-weight: 600;
+    padding: 6px 14px;
+    background-color: #e9f0fc;
+    cursor: pointer;
+  }
+  header nav {
+    display: flex;
+    gap: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2f2f2f;
+  }
+  header nav .dropdown {
+    position: relative;
+    cursor: pointer;
+  }
+  header nav .dropdown::after {
+    content: "▼";
+    font-size: 10px;
+    margin-left: 4px;
+    color: #666;
+  }
+  header nav .menu-dot {
+    font-weight: 900;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #555;
+  }
+  header .search {
+    margin-left: auto;
+    position: relative;
+  }
+  header .search input {
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 36px 6px 12px;
+    font-size: 14px;
+    width: 180px;
+  }
+  header .search svg {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #999;
+    width: 16px;
+    height: 16px;
+  }
+  header .profile-pic {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 18px;
+  }
+
+  /* Body stats cards */
+  .stats-cards {
+    display: flex;
+    gap: 16px;
+    padding: 24px 24px 0 24px;
+  }
+  .card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .card p {
+    font-weight: 400;
+    font-size: 13px;
+    margin: 0;
+  }
+  .card.yellow {
+    background-color: #fff0b7;
+    color: #c28f00;
+  }
+  .card.blue {
+    background-color: #d9e4ec;
+    color: #204060;
+  }
+  .card.purple {
+    background-color: #e3d9ff;
+    color: #5b3db6;
+  }
+  .card.cyan {
+    background-color: #daf0f9;
+    color: #0f8da8;
+  }
+
+  /* Icons inside cards */
+  .card svg {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  /* Main section */
+  main {
+    padding: 24px;
+  text-align: center; /* center text */
+  }
+  main h1 {
+    font-weight: 800;
+    font-size: 32px;
+    margin: 20px 0 8px;
+  }
+  main p.subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0 0 24px;
+    color: #6e6e6e;
+  }
+
+  /* Course filter tabs */
+  .course-tabs {
+   background-color: #dbe9ff;
+  border-radius: 10px;
+  padding: 12px 20px;
+  display: inline-flex;  /* make tabs shrink to content and align center */
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto; /* center horizontally */
+
+  }
+  .course-tabs button {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #3269c6;
+  }
+  .course-tabs button.active {
+    background-color: #2166d3;
+    color: #fff;
+  }
+
+
+
+    .cardss {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .cardss:hover {
+      transform: translateY(-5px);
+    }
+
+    .cardss img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .cardss-content {
+      padding: 1rem;
+    }
+
+    .level {
+      font-size: 0.75rem;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .desc {
+      font-size: 0.875rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .rating {
+      font-size: 0.875rem;
+      color: #f4b400;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #666;
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <svg style="vertical-align: middle;" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2f2f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 8v4l3 3"></path>
+    </svg>
+  </div>
+  <div class="logo-text">E<span>duport</span></div>
+  <button class="category-btn">Category</button>
+  <nav>
+    <div class="dropdown">Demos</div>
+    <div class="dropdown">Pages</div>
+    <div class="dropdown">Accounts</div>
+    <div class="dropdown">Megamenu</div>
+    <div class="menu-dot">...</div>
+  </nav>
+  <div class="search">
+    <input type="text" placeholder="Search" />
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="#999" stroke-width="2" fill="none" /><line x1="16" y1="16" x2="22" y2="22" stroke="#999" stroke-width="2" /></svg>
+  </div>
+  <img class="profile-pic" src="https://i.pravatar.cc/34" alt="profile" />
+</header>
+
+<div class="stats-cards">
+  <div class="card yellow">
+    <svg fill="#c28f00" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect><path d="M2 6h20"></path></svg>
+    <div>
+      <div>10K</div>
+      <p>Online Courses</p>
+    </div>
+  </div>
+  <div class="card blue">
+    <svg fill="#204060" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"></circle><path d="M5 21v-2a5 5 0 0 1 10 0v2"></path></svg>
+    <div>
+      <div>200+</div>
+      <p>Expert Tutors</p>
+    </div>
+  </div>
+  <div class="card purple">
+    <svg fill="#5b3db6" viewBox="0 0 24 24"><path d="M12 2l6 4v4a6 6 0 0 1-12 0V6l6-4z"></path><path d="M12 14v8"></path></svg>
+    <div>
+      <div>60K+</div>
+      <p>Online Students</p>
+    </div>
+  </div>
+  <div class="card cyan">
+    <svg fill="#0f8da8" viewBox="0 0 24 24"><path d="M20 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6"></path><polyline points="8 10 12 14 16 10"></polyline></svg>
+    <div>
+      <div>6K+</div>
+      <p>Certified Courses</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <h1>Most Popular Courses</h1>
+  <p class="subtitle">Choose from hundreds of courses from specialist organizations</p>
+  <div class="course-tabs">
+    <button class="active">Web Design</button>
+    <button>Development</button>
+    <button>Graphic Design</button>
+    <button>Marketing</button>
+    <button>Finance</button>
+  </div>
+  <div class="cardss">
+      <img src="https://img.icons8.com/color/250/000000/adobe-photoshop--v1.png" alt="Photoshop">
+      <div class="card-content">
+        <div class="level">Beginner</div>
+        <div class="title">Graphic Design Masterclass</div>
+        <div class="desc">Rooms oh fully taken by worse do. Points afraid but may end...</div>
+        <div class="rating">⭐ 4.5/5.0</div>
+        <div class="meta">
+          <span>9h 56m</span>
+          <span>65 lectures</span>
+        </div>
+      </div>
+    </div>
+    <div class="cardss">
+      <img src="https://img.icons8.com/color/250/000000/figma--v1.png" alt="Figma">
+      <div class="card-content">
+        <div class="level">Beginner</div>
+        <div class="title">Create a Design System in Figma</div>
+        <div class="desc">Rooms oh fully taken by worse do. Points afraid but may end...</div>
+        <div class="rating">⭐ 4.5/5.0</div>
+        <div class="meta">
+          <span>5h 56m</span>
+          <span>32 lectures</span>
+        </div>
+      </div>
+    </div>
+    <div class="cardss">
+      <img src="https://img.icons8.com/color/250/000000/react-native.png" alt="React Native">
+      <div class="card-content">
+        <div class="level">Beginner</div>
+        <div class="title">Deep Learning with React-Native</div>
+        <div class="desc">Far advanced settling say finished raillery. Offered chiefly...</div>
+        <div class="rating">⭐ 4.0/5.0</div>
+        <div class="meta">
+          <span>18h 56m</span>
+          <span>99 lectures</span>
+        </div>
+      </div>
+    </div>
+    <div class="cardss">
+      <img src="https://img.icons8.com/color/250/000000/html-5--v1.png" alt="HTML5">
+      <div class="card-content">
+        <div class="level">All level</div>
+        <div class="title">Build Responsive Websites with HTML</div>
+        <div class="desc">Far advanced settling say finished raillery. Offered chiefly...</div>
+        <div class="rating">⭐ 4.0/5.0</div>
+        <div class="meta">
+          <span>15h 30m</span>
+          <span>68 lectures</span>
+        </div>
+      </div>
+    </div>
+    <div class="cardss">
+      <img src="https://img.icons8.com/color/250/000000/css3.png" alt="CSS3">
+      <div class="card-content">
+        <div class="level">Beginner</div>
+        <div class="title">Build Websites with CSS</div>
+        <div class="desc">Far advanced settling say finished raillery. Offered chiefly...</div>
+        <div class="rating">⭐ 4.5/5.0</div>
+        <div class="meta">
+          <span>36h 30m</span>
+          <span>72 lectures</span>
+        </div>
+      </div>
+    </div>
+  
+</main>
+
+
+</body>
+</html>
